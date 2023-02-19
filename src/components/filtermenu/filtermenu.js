@@ -15,7 +15,7 @@ import 'material-design-icons-iconfont';
 import '../formdialog.scss';
 import '../../assets/css/flexstyles.scss';
 import ServerConnections from '../ServerConnections';
-import template from './filtermenu.template.html';
+import template from './filtermenu.template.html?raw';
 
 function onSubmit(e) {
     e.preventDefault();

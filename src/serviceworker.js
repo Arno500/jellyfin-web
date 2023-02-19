@@ -1,11 +1,11 @@
 /* eslint-env serviceworker */
 
 /* eslint-disable import/namespace,import/named */
-import { skipWaiting, clientsClaim } from 'workbox-core';
+import { clientsClaim } from 'workbox-core';
 import { precacheAndRoute } from 'workbox-precaching';
 /* eslint-enable import/namespace,import/named */
 
-skipWaiting();
+self.skipWaiting();
 clientsClaim();
 
 function getApiClient(serverId) {
@@ -45,7 +45,7 @@ self.addEventListener('notificationclick', function (event) {
 }, false);
 
 // Do not precache files when running with webpack dev server so live reload works as expected
-if (!__WEBPACK_SERVE__) { // eslint-disable-line no-undef
+if (!import.meta.env.DEV) { // eslint-disable-line no-undef
     // this is needed by the webpack Workbox plugin
     /* eslint-disable-next-line no-restricted-globals,no-undef */
     precacheAndRoute(self.__WB_MANIFEST);

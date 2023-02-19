@@ -1,6 +1,6 @@
 import './emby-progressring.scss';
 import 'webcomponents.js/webcomponents-lite';
-import template from './emby-progressring.template.html';
+import template from './emby-progressring.template.html?raw';
 import { getCurrentDateTimeLocale } from '../../scripts/globalize';
 import { toPercent } from '../../utils/number.ts';
 

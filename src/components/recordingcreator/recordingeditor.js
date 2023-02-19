@@ -14,7 +14,7 @@ import './recordingcreator.scss';
 import 'material-design-icons-iconfont';
 import '../../assets/css/flexstyles.scss';
 import ServerConnections from '../ServerConnections';
-import template from './recordingeditor.template.html';
+import template from './recordingeditor.template.html?raw';
 
 let currentDialog;
 let recordingDeleted = false;

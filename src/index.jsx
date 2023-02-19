@@ -1,5 +1,3 @@
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
 import 'jquery';
 import 'fast-text-encoding';
 import 'intersection-observer';
@@ -7,8 +5,9 @@ import 'classlist.js';
 import 'whatwg-fetch';
 import 'resize-observer-polyfill';
 import './assets/css/site.scss';
-import React, { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom';
+import { StrictMode } from 'react';
+import { render } from 'react-dom';
+import jQuery from "jquery";
 import Events from './utils/events.ts';
 import ServerConnections from './components/ServerConnections';
 import globalize from './scripts/globalize';
@@ -38,6 +37,11 @@ import './legacy/vendorStyles';
 import { currentSettings } from './scripts/settings/userSettings';
 import taskButton from './scripts/taskbutton';
 import App from './App.tsx';
+
+// Allow using UMD modules such as Hls.js
+window.root = {}
+// Add jQuery globally
+window.jQuery = window.$ = jQuery;
 
 function loadCoreDictionary() {
     const languages = ['af', 'ar', 'be-by', 'bg-bg', 'bn_bd', 'ca', 'cs', 'cy', 'da', 'de', 'el', 'en-gb', 'en-us', 'eo', 'es', 'es_419', 'es-ar', 'es_do', 'es-mx', 'et', 'eu', 'fa', 'fi', 'fil', 'fr', 'fr-ca', 'gl', 'gsw', 'he', 'hi-in', 'hr', 'hu', 'id', 'it', 'ja', 'kk', 'ko', 'lt-lt', 'lv', 'mr', 'ms', 'nb', 'nl', 'nn', 'pl', 'pr', 'pt', 'pt-br', 'pt-pt', 'ro', 'ru', 'sk', 'sl-si', 'sq', 'sv', 'ta', 'th', 'tr', 'uk', 'ur_pk', 'vi', 'zh-cn', 'zh-hk', 'zh-tw'];
@@ -143,7 +147,7 @@ async function onAppReady() {
 
     await appRouter.start();
 
-    ReactDOM.render(
+    render(
         <StrictMode>
             <App history={history} />
         </StrictMode>,
@@ -151,29 +155,29 @@ async function onAppReady() {
     );
 
     if (!browser.tv && !browser.xboxOne && !browser.ps4) {
-        import('./components/nowPlayingBar/nowPlayingBar');
+        import('./components/nowPlayingBar/nowPlayingBar.js');
     }
 
     if (appHost.supports('remotecontrol')) {
-        import('./components/playback/playerSelectionMenu');
-        import('./components/playback/remotecontrolautoplay');
+        import('./components/playback/playerSelectionMenu.js');
+        import('./components/playback/remotecontrolautoplay.js');
     }
 
     if (!appHost.supports('physicalvolumecontrol') || browser.touch) {
-        import('./components/playback/volumeosd');
+        import('./components/playback/volumeosd.js');
     }
 
     /* eslint-disable-next-line compat/compat */
     if (navigator.mediaSession || window.NativeShell) {
-        import('./components/playback/mediasession');
+        import('./components/playback/mediasession.js');
     }
 
     if (!browser.tv && !browser.xboxOne) {
-        import('./components/playback/playbackorientation');
+        import('./components/playback/playbackorientation.js');
         registerServiceWorker();
 
         if (window.Notification) {
-            import('./components/notifications/notifications');
+            import('./components/notifications/notifications.js');
         }
     }
 
@@ -255,7 +259,7 @@ async function onAppReady() {
 function registerServiceWorker() {
     /* eslint-disable compat/compat */
     if (navigator.serviceWorker && window.appMode !== 'cordova' && window.appMode !== 'android') {
-        navigator.serviceWorker.register('serviceworker.js').then(() =>
+        navigator.serviceWorker.register(new URL('./serviceworker.js', import.meta.url), {type: "module"}).then(() =>
             console.log('serviceWorker registered')
         ).catch(error =>
             console.log('error registering serviceWorker: ' + error)

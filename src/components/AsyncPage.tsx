@@ -10,7 +10,7 @@ interface AsyncPageProps {
  * with code splitting.
  */
 const AsyncPage = loadable(
-    (props: AsyncPageProps) => import(/* webpackChunkName: "[request]" */ `../routes/${props.page}`),
+    (props: AsyncPageProps) => import(`../routes/${props.page}`),
     { cacheKey: (props: AsyncPageProps) => props.page }
 );
 

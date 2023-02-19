@@ -197,7 +197,8 @@ const Direction = {
 
             import(/* webpackChunkName: "[request]" */ `../strings/${url}`).then((fileContent) => {
                 resolve(fileContent);
-            }).catch(() => {
+            }).catch(err => {
+                console.error('Cannot load translation: ', err)
                 resolve({});
             });
         });

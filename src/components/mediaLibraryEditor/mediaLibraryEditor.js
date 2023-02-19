@@ -21,7 +21,7 @@ import '../../assets/css/flexstyles.scss';
 import './style.scss';
 import toast from '../toast/toast';
 import confirm from '../confirm/confirm';
-import template from './mediaLibraryEditor.template.html';
+import template from './mediaLibraryEditor.template.html?raw';
 
     function onEditLibrary() {
         if (isCreating) {

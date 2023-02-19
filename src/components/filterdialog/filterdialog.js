@@ -6,7 +6,7 @@ import '../../elements/emby-checkbox/emby-checkbox';
 import '../../elements/emby-collapse/emby-collapse';
 import './style.scss';
 import ServerConnections from '../ServerConnections';
-import template from './filterdialog.template.html';
+import template from './filterdialog.template.html?raw';
 
 /* eslint-disable indent */
     function renderOptions(context, selector, cssClass, items, isCheckedFn) {

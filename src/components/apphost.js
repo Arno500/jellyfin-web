@@ -305,7 +305,7 @@ function askForExit() {
         return;
     }
 
-    import('../components/actionSheet/actionSheet').then((actionsheet) => {
+    import('../components/actionSheet/actionSheet.js').then((actionsheet) => {
         exitPromise = actionsheet.show({
             title: globalize.translate('MessageConfirmAppExit'),
             items: [

@@ -21,7 +21,7 @@ import 'material-design-icons-iconfont';
 import '../cardbuilder/card.scss';
 import ServerConnections from '../ServerConnections';
 import toast from '../toast/toast';
-import template from './itemidentifier.template.html';
+import template from './itemidentifier.template.html?raw';
 import datetime from '../../scripts/datetime';
 
     const enableFocusTransform = !browser.slow && !browser.edge;

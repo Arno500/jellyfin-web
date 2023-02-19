@@ -14,6 +14,8 @@ export interface ViewManagerPageProps {
     transition?: string
 }
 
+const views = import.meta.glob('../../controllers/**/*.html', { as: 'raw' })
+
 /**
  * Page component that renders legacy views via the ViewManager.
  * NOTE: Any new pages should use the generic Page component instead.
@@ -48,8 +50,8 @@ const ViewManagerPage: FunctionComponent<ViewManagerPageProps> = ({
                 .catch(async (result?: any) => {
                     if (!result || !result.cancelled) {
                         const [ controllerFactory, viewHtml ] = await Promise.all([
-                            import(/* webpackChunkName: "[request]" */ `../../controllers/${controller}`),
-                            import(/* webpackChunkName: "[request]" */ `../../controllers/${view}`)
+                            import(`../../controllers/${controller}.js`),
+                            views[`../../controllers/${view}`]()
                                 .then(html => globalize.translateHtml(html))
                         ]);
 

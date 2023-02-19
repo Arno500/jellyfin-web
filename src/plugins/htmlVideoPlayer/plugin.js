@@ -33,6 +33,8 @@ import { setBackdropTransparency, TRANSPARENCY_LEVEL } from '../../components/ba
 import Events from '../../utils/events.ts';
 import { includesAny } from '../../utils/container.ts';
 
+import Hls from "hls.js"
+
 /**
  * Returns resolved URL.
  * @param {string} url - URL.
@@ -105,10 +107,12 @@ function tryRemoveElement(elem) {
     }
 
     function requireHlsPlayer(callback) {
-        import('hls.js').then(({default: hls}) => {
-            window.Hls = hls;
+        // Unfortunately, hls.js is somewhat broken as UMD-only with
+        // a weird "this" so we cannot import it like that
+        // import('hls.js').then((hls) => {
+            window.Hls = Hls;
             callback();
-        });
+        // });
     }
 
     function getMediaStreamAudioTracks(mediaSource) {

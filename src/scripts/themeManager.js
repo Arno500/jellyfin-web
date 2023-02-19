@@ -30,7 +30,7 @@ function getThemeStylesheetInfo(id) {
         }
 
         return {
-            stylesheetPath: 'themes/' + theme.id + '/theme.css',
+            stylesheetPath: new URL('../themes/' + theme.id + '/theme.css', import.meta.url),
             themeId: theme.id,
             color: theme.color
         };

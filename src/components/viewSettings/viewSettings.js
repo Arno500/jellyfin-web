@@ -10,7 +10,7 @@ import '../../elements/emby-select/emby-select';
 import 'material-design-icons-iconfont';
 import '../formdialog.scss';
 import '../../assets/css/flexstyles.scss';
-import template from './viewSettings.template.html';
+import template from './viewSettings.template.html?raw';
 
 function onSubmit(e) {
     e.preventDefault();

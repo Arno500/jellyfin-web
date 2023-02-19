@@ -67,11 +67,13 @@ const DEFAULT_LOCALE = 'en-US';
 let localeString = DEFAULT_LOCALE;
 let locale = enUS;
 
+const allLocales = import.meta.glob('../../node_modules/date-fns/esm/locale/*/index.js');
+
 export async function updateLocale(newLocale: string) {
     console.debug('[dateFnsLocale] updating date-fns locale', newLocale);
     localeString = LOCALE_MAP[newLocale] || LOCALE_MAP[newLocale.replace(/-.*/, '')] || DEFAULT_LOCALE;
     console.debug('[dateFnsLocale] mapped to date-fns locale', localeString);
-    locale = await import(`date-fns/locale/${localeString}/index.js`);
+    locale = (await allLocales[`../../node_modules/date-fns/esm/locale/${localeString}/index.js`] as any).default;
 }
 
 export function getLocale() {

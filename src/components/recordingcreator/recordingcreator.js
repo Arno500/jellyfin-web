@@ -18,7 +18,7 @@ import './recordingcreator.scss';
 import 'material-design-icons-iconfont';
 import ServerConnections from '../ServerConnections';
 import { playbackManager } from '../playback/playbackmanager';
-import template from './recordingcreator.template.html';
+import template from './recordingcreator.template.html?raw';
 
 import PlaceholderImage from './empty.png';
 

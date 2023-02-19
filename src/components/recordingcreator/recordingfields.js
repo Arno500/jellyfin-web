@@ -10,7 +10,7 @@ import './recordingfields.scss';
 import '../../assets/css/flexstyles.scss';
 import ServerConnections from '../ServerConnections';
 import toast from '../toast/toast';
-import template from './recordingfields.template.html';
+import template from './recordingfields.template.html?raw';
 
 /*eslint prefer-const: "error"*/
 

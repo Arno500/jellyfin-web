@@ -22,7 +22,7 @@ import '../formdialog.scss';
 import 'material-design-icons-iconfont';
 import '../../assets/css/flexstyles.scss';
 import ServerConnections from '../ServerConnections';
-import template from './itemMediaInfo.template.html';
+import template from './itemMediaInfo.template.html?raw';
 
 // Do not add extra spaces between tags - they will be copied into the result
 const copyButtonHtml = layoutManager.tv ? '' :

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "lib": ["DOM", "DOM.Iterable", "ES2015"],
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -10,11 +10,13 @@
     "strict": true,
     "module": "ESNext",
     "moduleResolution": "node",
-    "outDir": "./dist/",
     "checkJs": false,
     "strictNullChecks": true,
     "jsx": "react-jsx",
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "types": ["vite/client"]
   },
   "include": [
     "src"

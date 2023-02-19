@@ -13,7 +13,7 @@ import '../../elements/emby-button/emby-button';
 import '../formdialog.scss';
 import '../cardbuilder/card.scss';
 import ServerConnections from '../ServerConnections';
-import template from './imageDownloader.template.html';
+import template from './imageDownloader.template.html?raw';
 
 /* eslint-disable indent */
 

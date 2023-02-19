@@ -10,7 +10,7 @@ import '../../elements/emby-select/emby-select';
 import '../../elements/emby-checkbox/emby-checkbox';
 import ServerConnections from '../ServerConnections';
 import toast from '../toast/toast';
-import template from './playbackSettings.template.html';
+import template from './playbackSettings.template.html?raw';
 
 /* eslint-disable indent */
 

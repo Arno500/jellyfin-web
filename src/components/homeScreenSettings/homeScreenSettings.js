@@ -12,7 +12,7 @@ import '../../elements/emby-select/emby-select';
 import '../../elements/emby-checkbox/emby-checkbox';
 import ServerConnections from '../ServerConnections';
 import toast from '../toast/toast';
-import template from './homeScreenSettings.template.html';
+import template from './homeScreenSettings.template.html?raw';
 
 /* eslint-disable indent */
 

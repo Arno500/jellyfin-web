@@ -16,7 +16,7 @@ import './imageeditor.scss';
 import ServerConnections from '../ServerConnections';
 import alert from '../alert';
 import confirm from '../confirm/confirm';
-import template from './imageeditor.template.html';
+import template from './imageeditor.template.html?raw';
 
 /* eslint-disable indent */
 

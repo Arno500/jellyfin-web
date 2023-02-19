@@ -26,7 +26,7 @@ import '../../elements/emby-scroller/emby-scroller';
 import '../../assets/css/flexstyles.scss';
 import 'webcomponents.js/webcomponents-lite';
 import ServerConnections from '../ServerConnections';
-import template from './tvguide.template.html';
+import template from './tvguide.template.html?raw';
 
 function showViewSettings(instance) {
     import('./guide-settings').then(({default: guideSettingsDialog}) => {

@@ -7,7 +7,7 @@ import loading from '../../components/loading/loading';
 import scrollHelper from '../../scripts/scrollHelper';
 import layoutManager from '../layoutManager';
 import globalize from '../../scripts/globalize';
-import template from './subtitleuploader.template.html';
+import template from './subtitleuploader.template.html?raw';
 import toast from '../toast/toast';
 import '../../elements/emby-button/emby-button';
 import '../../elements/emby-select/emby-select';

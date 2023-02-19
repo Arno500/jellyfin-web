@@ -12,7 +12,7 @@ import '../../elements/emby-checkbox/emby-checkbox';
 import '../../elements/emby-select/emby-select';
 import '../../elements/emby-input/emby-input';
 import './style.scss';
-import template from './libraryoptionseditor.template.html';
+import template from './libraryoptionseditor.template.html?raw';
 
     function populateLanguages(parent) {
         return ApiClient.getCultures().then(languages => {

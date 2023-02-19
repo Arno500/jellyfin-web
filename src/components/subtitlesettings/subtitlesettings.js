@@ -17,7 +17,7 @@ import '../../assets/css/flexstyles.scss';
 import './subtitlesettings.scss';
 import ServerConnections from '../ServerConnections';
 import toast from '../toast/toast';
-import template from './subtitlesettings.template.html';
+import template from './subtitlesettings.template.html?raw';
 
 /**
  * Subtitle settings.

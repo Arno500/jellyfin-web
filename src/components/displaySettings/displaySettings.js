@@ -15,7 +15,7 @@ import '../../elements/emby-button/emby-button';
 import '../../elements/emby-textarea/emby-textarea';
 import ServerConnections from '../ServerConnections';
 import toast from '../toast/toast';
-import template from './displaySettings.template.html';
+import template from './displaySettings.template.html?raw';
 
 /* eslint-disable indent */
 

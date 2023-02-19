@@ -18,7 +18,7 @@ import '../../assets/css/flexstyles.scss';
 import ServerConnections from '../ServerConnections';
 import toast from '../toast/toast';
 import confirm from '../confirm/confirm';
-import template from './subtitleeditor.template.html';
+import template from './subtitleeditor.template.html?raw';
 
 let currentItem;
 let hasChanges;

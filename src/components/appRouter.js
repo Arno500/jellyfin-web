@@ -18,6 +18,8 @@ export const history = createHashHistory();
  */
 const START_PAGE_TYPES = ['home', 'login', 'selectserver'];
 
+const views = import.meta.glob('../controllers/**/*.html', { as: 'raw' })
+
 class AppRouter {
     allRoutes = new Map();
     currentRouteInfo = { route: {} };
@@ -247,7 +249,7 @@ class AppRouter {
             url = apiClient.getUrl(`/web${url}`);
             promise = apiClient.get(url);
         } else {
-            promise = import(/* webpackChunkName: "[request]" */ `../controllers/${url}`);
+            promise = views[`../controllers/${url}`]()
         }
 
         promise.then((html) => {
@@ -267,7 +269,7 @@ class AppRouter {
         };
 
         if (route.controller) {
-            import(/* webpackChunkName: "[request]" */ '../controllers/' + route.controller).then(onInitComplete);
+            import(/* webpackChunkName: "[request]" */ `../controllers/${route.controller}`).then(onInitComplete);
         } else {
             onInitComplete();
         }
